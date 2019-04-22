@@ -11,6 +11,12 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'tarefas'], function () use ($router) {
+    $router->get('/','TarefaController@index');   
+});
+
+$router->group(['prefix' => 'listas'], function () use ($router) {
+    $router->get('/', function ()    {
+       return 'listar listas ';
+    });
 });
