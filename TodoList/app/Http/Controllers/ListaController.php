@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lista;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
  
 class ListaController extends Controller{
 
@@ -14,10 +15,12 @@ class ListaController extends Controller{
     }
 
     public function store(Request $request){
+
         $this->validate($request, [
-            'nome' => 'required|min:2'
+            'nome' => 'required|max:20'
         ]);
-        $request->json()->all();
+
+        $request = $request->json()->all();
         $lista = new Lista();
         $lista->nome = $request['nome'];
         try{
@@ -37,4 +40,3 @@ class ListaController extends Controller{
     }
   
 }
-?>
