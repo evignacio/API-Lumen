@@ -22,5 +22,5 @@ $router->group(['prefix' => 'listas'], function () use ($router) {
     $router->get('/','ListaController@index');
     $router->post('/','ListaController@store');
     $router->put('/','ListaController@update');
-    $router->delete('/','ListaController@delete');
+    $router->delete('/{id}','ListaController@destroy');
 });

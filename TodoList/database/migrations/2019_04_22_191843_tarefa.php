@@ -17,6 +17,7 @@ class Tarefa extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->timestamps();
+            $table->binary('concluido');
             $table->integer('t_lista_id')->unsigned();
             $table->foreign('t_lista_id')->references('id')->on('listaTarefa');
         });

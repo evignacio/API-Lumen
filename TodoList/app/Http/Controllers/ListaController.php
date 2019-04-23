@@ -42,8 +42,16 @@ class ListaController extends Controller{
     public function update(Request $request, $id){
       
     }  
-    public function delet($id){
-   
+    public function destroy($id){
+        try{
+            if(Lista::find($id)) {
+                Lista::where('id', $id)->delete();
+                return array(['status' => 'sucess', 'code' => 200]);
+            }
+            return array(['status' => 'sucess', 'message' => 'lista not found', 'code' => 404]);
+        } catch (QueryException $e) {
+            return array(['status' => 'error', 'code' => 503]);
+        }
     }
   
 }
