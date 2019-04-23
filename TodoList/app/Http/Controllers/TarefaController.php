@@ -10,13 +10,12 @@ class TarefaController extends Controller{
 
     public function index(){
 
-        $data = Tarefa::all();
-        return response($data);
+        return response(Tarefa::all());
     }
 
     public function store(Request $request){
 
-
+        
     }
 
     public function update(Request $request, $id){

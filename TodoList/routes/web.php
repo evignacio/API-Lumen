@@ -12,11 +12,15 @@
 */
 
 $router->group(['prefix' => 'tarefas'], function () use ($router) {
-    $router->get('/','TarefaController@index');   
+    $router->get('/','TarefaController@index');
+    $router->post('/', 'TarefaController@store');
+    $router->put('/', 'TarefaController@update');
+    $router->delete('/','TarefaCotroller@delete');   
 });
 
 $router->group(['prefix' => 'listas'], function () use ($router) {
-    $router->get('/', function ()    {
-       return 'listar listas ';
-    });
+    $router->get('/','ListaController@index');
+    $router->post('/','ListaController@store');
+    $router->put('/','ListaController@update');
+    $router->delete('/','ListaController@delete');
 });
