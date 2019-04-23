@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 */
 
 $router->group(['prefix' => 'tarefas'], function () use ($router) {
-    $router->get('/','TarefaController@index');
+    $router->get('/{param}','TarefaController@getTarefaById');
     $router->post('/', 'TarefaController@store');
     $router->put('/', 'TarefaController@update');
     $router->delete('/','TarefaCotroller@delete');   
