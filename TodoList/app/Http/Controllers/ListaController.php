@@ -10,7 +10,8 @@ use Illuminate\Database\QueryException;
  
 class ListaController extends Controller{
 
-    public function index(){
+    public function index()
+    {
 
         try{
             $data =  Lista::all();
@@ -20,7 +21,8 @@ class ListaController extends Controller{
         }
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $result = $this->validate($request, 
             ['nome' => 'required|max:20'],
@@ -39,16 +41,14 @@ class ListaController extends Controller{
         }
     }
 
-    public function update(Request $request, $id){
-      
-    }  
-    public function destroy($id){
+    public function destroy($id)
+    {
         try{
             if(Lista::find($id)) {
                 Lista::where('id', $id)->delete();
                 return array(['status' => 'sucess', 'code' => 200]);
             }
-            return array(['status' => 'sucess', 'message' => 'lista not found', 'code' => 404]);
+            return array(['status' => 'sucess', 'message' => 'list not found', 'code' => 404]);
         } catch (QueryException $e) {
             return array(['status' => 'error', 'code' => 503]);
         }

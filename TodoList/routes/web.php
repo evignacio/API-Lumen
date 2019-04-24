@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 $router->group(['prefix' => 'tarefas'], function () use ($router) {
     $router->get('/{param}','TarefaController@getTarefaById');
     $router->post('/', 'TarefaController@store');
-    $router->put('/', 'TarefaController@update');
-    $router->delete('/','TarefaCotroller@delete');   
+    $router->put('/marca/{id}', 'TarefaController@finishTask');
+    $router->delete('/{id}','TarefaController@destroy');   
 });
 
 $router->group(['prefix' => 'listas'], function () use ($router) {
