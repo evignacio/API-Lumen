@@ -90,9 +90,20 @@ class TarefaController extends Controller{
         }
     }
 
-    public function moveTarefa()
+    public function moveTarefa($idTarefa, $idLista)
     {
-        ///
+        try{
+            $lista = Lista::find($idLista);
+            $tarefa = Tarefa::find($idTarefa);
+            if(isset($lista['nome']) && isset($tarefa['nome'])) {
+                Tarefa::where('id', $idTarefa)->update(['t_lista_id' => $idLista]);
+                $data = Tarefa::all()->sortBy('updated_at')->first();
+                return response(array(['status' => 'sucess', 'code' => 200, 'data' => $data]));
+            }
+            return response(array(['status' => 'error', 'message' => 'List or task not found', 'code' =>  404]));
+        } catch(QueryExeception $e) {
+            return response(array(['status' => 'error', 'code' => 503]));
+        }
     }
   
 }

@@ -15,6 +15,7 @@ $router->group(['prefix' => 'tarefas'], function () use ($router) {
     $router->get('/{param}','TarefaController@getTarefaById');
     $router->post('/', 'TarefaController@store');
     $router->put('/marca/{id}', 'TarefaController@finishTask');
+    $router->put('/{idTarefa}/{idLista}','Tarefacontroller@moveTarefa');
     $router->delete('/{id}','TarefaController@destroy');   
 });
 
