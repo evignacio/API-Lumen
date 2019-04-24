@@ -14,14 +14,14 @@ use Illuminate\Http\Request;
 $router->group(['prefix' => 'tarefas'], function () use ($router) {
     $router->get('/{param}','TarefaController@getTarefaById');
     $router->post('/', 'TarefaController@store');
-    $router->put('/marca/{id}', 'TarefaController@finishTask');
-    $router->put('/{idTarefa}/{idLista}','Tarefacontroller@moveTarefa');
+    $router->patch('/marca/{id}', 'TarefaController@finishTask');
+    $router->patch('/{idTarefa}/{idLista}','Tarefacontroller@moveTarefa');
     $router->delete('/{id}','TarefaController@destroy');   
 });
 
 $router->group(['prefix' => 'listas'], function () use ($router) {
     $router->get('/','ListaController@index');
     $router->post('/','ListaController@store');
-    $router->put('/','ListaController@update');
+    $router->patch('/','ListaController@update');
     $router->delete('/{id}','ListaController@destroy');
 });
