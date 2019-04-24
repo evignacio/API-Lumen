@@ -48,9 +48,13 @@ class ListaController extends Controller{
                 Lista::where('id', $id)->delete();
                 return array(['status' => 'sucess', 'code' => 200]);
             }
-            return array(['status' => 'sucess', 'message' => 'list not found', 'code' => 404]);
+            return array(['status' => 'sucess', 'message' => 'List not found.', 'code' => 404]);
         } catch (QueryException $e) {
-            return array(['status' => 'error', 'code' => 503]);
+            $error = explode(':',$e->getMessage());
+            if($error[0] === 'SQLSTATE[23000]') {
+                return array(['status' => 'error', 'message' => 'You need exclude the tasks linked with this list before.', 'code' => 409]);
+            }
+            return array(['status' => 'error', 'code' => 500]);
         }
     }
   

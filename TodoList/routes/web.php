@@ -22,6 +22,5 @@ $router->group(['prefix' => 'tarefas'], function () use ($router) {
 $router->group(['prefix' => 'listas'], function () use ($router) {
     $router->get('/','ListaController@index');
     $router->post('/','ListaController@store');
-    $router->patch('/','ListaController@update');
     $router->delete('/{id}','ListaController@destroy');
 });
