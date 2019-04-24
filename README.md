@@ -1,9 +1,14 @@
 # API-Lumen
 Essa API foi desenvolvida em um desafio de Back-end para uma vaga de programador em uma agência. 
 
+## Configuração
 - Antes de usar a api é necessário criar a base de dados ``todolist``
 - Em seguida utilize o comando ``php -S localhost:800 -t public `` para iniciar o servidor php.
 - E por fim em uma CLI bash (Exemplo: Git bash)  dentro da pasta ``TodoList``utilize o comando ``./artisan migration`` para criar as tabelas do banco de dados.
+
+### env
+- Caso você esteja clonando esse repositório do GitHub, altere o nome do arquivo .env.exemple para .env
+
 
 ## Documentação API.
 - Acesse o link abaixo para fazer parte do time de desenvolvimento da API no postman e acessar a documentação.
