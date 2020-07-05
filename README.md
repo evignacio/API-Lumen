@@ -11,7 +11,7 @@ Essa API foi desenvolvida em um desafio de Back-end para uma vaga de programador
 
 
 ## Documentação API.
-- Acesse o link abaixo para fazer parte do time de desenvolvimento da API no postman e acessar a documentação.
+- Acesse o link abaixo para solicitar a participação na equipe criada no postman
 https://app.getpostman.com/join-team?invite_code=442d003a27b380f78158b1c3239dedc6&ws=98838c4e-c459-47e1-8961-e2d3612a2a46
 
 - Link da documentação
